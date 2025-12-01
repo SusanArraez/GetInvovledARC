@@ -1,0 +1,814 @@
+/* --------------------CSS By Susan Arraez-------------------------*/
+/*--------------------- Imported Fonts ----------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Serif:ital,opsz,wdth,wght,GRAD@0,8..144,50..150,100..900,-50..100;1,8..144,50..150,100..900,-50..100&display=swap');
+
+/* ------CSS Reset------ */
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ---------- Variables ---------- */
+:root{
+    --navy: #272F40;
+    --dark-orange: #C95127;
+    --accent-dark: #b74a20;
+    --cream: #FDF3E5;
+    --light-orange: #F8BA75;
+    --yellow: #FFC400;
+    --brown: #765433;
+    --black: #222222;
+    --white: #ffffff;
+    font-family: "Nunito Sans", sans-serif;
+    --radius: 12px;
+    --gap: 1.15rem;
+    --shadow: 0 6px 18px rgba(34,34,34,0.08);
+    --transition: 200ms ease-in-out;
+}
+
+/* Skip to content (visible on focus) */
+.skip-to-content-link{
+    position:absolute;
+    left:-999px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+.skip-to-content-link:focus{
+    left:10px;
+    top:10px;
+    width:auto;
+    height:auto;
+    padding:0.5rem 0.75rem;
+    color:var(--white);
+    border-radius:6px;
+    z-index:9999;
+    text-decoration:none;
+    box-shadow:var(--shadow);
+}
+/* -----Global Styles (mobile first)-------------- */
+/* * {
+    outline: 1px solid red;
+} */
+
+html, body {
+    box-sizing: border-box; /* makes width calculations predictable */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100vw;
+    /* overflow-y: visible; */
+}
+/* body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    min-height: 100vh;
+    margin: 0; */
+/* } */
+/* Put nav into the first row and span full width */
+nav.mobile-nav {
+    grid-row: 1;             /* first row */
+    /* span from first to last column */
+    z-index: 999;            /* above header graphics if sticky */
+    width: 100%;
+    background-color: var(--navy);
+    padding: 10px 0px;
+}
+
+/* Header sits after the nav */
+header {
+    grid-row: 3;
+    grid-column: 1/-1;          
+    position: relative;
+    background-color: var(--cream);
+     /* keep header-curve svg absolute inside header */
+}
+/* header-actions directly under header */
+#header-actions {
+    grid-row: 2;
+}
+main#main {
+    grid-row: 4;
+}
+
+/* Footer last */
+footer.site-footer {
+    grid-row: 5;
+    margin-top: 1.5rem;
+}
+img, iframe, video, embed{
+    max-width: 100%;
+    height: auto;
+}
+h1{
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--dark-orange);
+    font-size: 2.5rem;
+    font-weight: 650;
+    text-align: center;
+}
+h2{
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--dark-orange);
+    font-size: 1.75rem;
+    font-weight: 650;
+}
+h3{
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--navy);
+    font-size: 1.25rem;
+    font-weight: 650;  
+}
+h4{
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--cream);
+    font-size: 1.438rem;
+    font-weight: 850;  
+}
+p{
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 140%;
+    color: var(--navy);
+    line-height: 148%;
+    font-weight: 550;
+}
+
+/* ---------- Navigation (mobile-first) ---------- */
+nav h2{ 
+    visibility: hidden; 
+    width: 1px; 
+    height: 1px; 
+} 
+nav { 
+    overflow: hidden;
+    background-color: var(--navy); 
+    position: relative;
+    padding: 10px 0px; 
+} 
+/* Hide the links inside the navigation menu (except for logo/home) */ .topnav #myLinks {
+    display: none; 
+} 
+/* Style navigation menu links */ 
+.home-logo{
+    width:fit-content;
+    margin: auto; 
+}
+.topnav a { 
+    color: var(--white); 
+    padding: 14px 16px; 
+    text-decoration: none; 
+    font-size: 17px; 
+    display: block;
+    text-align: center; 
+}
+ /* Style the hamburger menu */ 
+.topnav a.icon { 
+    background:var(--navy); 
+    display: flex; 
+    justify-content: flex-end;
+    position: absolute;
+    right: 12px;
+    padding-right: 2rem; 
+} 
+/* Larger Font Awesome icon */ 
+.topnav a.icon .fa { 
+    font-size: 30px; /* bigger bars */ 
+} 
+
+.topnav #myLinks a:hover { 
+    background-color: var(--white); 
+    color: var(--black); 
+} 
+#header-actions {
+    background: var(--navy); 
+    display: flex; 
+    width: 100%;
+    justify-content: center;
+    gap: 30px; 
+    padding: 18px 0px;
+} 
+#header-actions a { 
+    text-align: center;
+    letter-spacing: 0.10rem; 
+}
+
+
+/* ---------- Buttons ---------- */
+.btn{
+    display:inline-block;
+    padding: 0.688rem 1.25rem;
+    text-decoration:none;
+    font-weight:650;
+    letter-spacing:.1rem;
+    transition:all var(--transition);
+    border:none;
+    cursor:pointer;
+    font-size: 1rem;
+}
+.btn-primary{
+    background:var(--dark-orange);
+    color:var(--white);
+    box-shadow:0 6px 14px var(--black);
+}
+.btn-primary:hover{ 
+    background:var(--accent-dark);
+    transform:translateY(-2px);
+}
+.btn-outline{
+    background:transparent;
+    color:var(--white);
+    border:3px solid var(--white);
+    box-shadow:0 6px 14px var(--black);
+}
+.btn:focus{
+    outline:3px solid var(--accent-dark);
+    outline-offset:2px;
+}
+.btn-outline:hover{
+    background:var(--white);
+    color: var(--navy); 
+    transform:translateY(-2px); 
+    }
+/* -----------header--------- */
+.header-curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.header-curve svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 148px;
+    z-index: 1;
+}
+
+.header-curve .shape-fill {
+    fill: var(--white);
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .header-curve svg {
+        width: calc(100% + 1.3px);
+        height: 45px;
+    }
+}
+header{
+    padding: 25px 24px 46px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mobile-hdr{
+    display: contents;
+}
+
+header p{
+    text-align: center;
+    padding: 19px 0px 42px 0px;
+}
+
+.heart1{
+    border: none;
+    width: 100%;
+    max-width: 2.5rem;
+    border-radius: 0%;
+}
+
+#decor-hdr-hrts1{
+    display: grid;
+    grid-template-columns: auto 43px;
+}
+header a{
+    position: relative;
+    top: -15px;
+    left: 0px;
+    margin-bottom: 2rem;
+}
+header h1{
+    padding-left: 43px;;
+}
+#decor-hdr-img-sun{
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 20px 16px auto 2px;
+}
+#heart1{
+    border: none;
+    width: 10%;
+    position: relative;
+    top: -35px;
+    left: -125px;
+    border-radius: 0%;
+
+}
+#headersun1, #headersun2 {
+    border: none;
+    position: relative;
+    top: -15px;
+    width: 26%;
+    z-index: 3;
+    left: 166px;
+}
+#headersun2 {
+    left: -145px;
+    top: -34px;
+    width: 22%;
+}
+
+header img{
+    z-index: 2;
+    border: 12px solid var(--brown);
+    border-radius: 3rem;
+    width: 100%;
+    max-width: 585.73px;
+    height: auto;
+}
+#decor-hdr-hrts3{
+    border: none;
+    border-radius: 0%;
+    width: 16%;
+    position: relative;
+    left: 134px;
+    top: 47px;
+}
+/* ---Section Our Services---- */
+
+.section-title{
+    background-color: var(--white);
+    padding: 4rem 1.563rem;
+    display: grid;
+}
+#service-sun1{
+    position: relative;
+    left:0px ;
+    top:-8px;
+}
+#service-sun2{
+    position: relative;
+    left: 306px;
+    top: 8px;
+}
+
+.service-options{ /*--------carousel scroll effect--------*/
+    background-color: var(--navy);
+    padding: 4rem 3rem;
+    display: flex;
+    /* flex-direction: column; */
+    overflow-x: auto;
+    gap: 2rem;
+    width: calc(100% - 6rem);
+    -webkit-overflow-scrolling: touch;
+    
+}
+.service-options::-webkit-scrollbar{
+    display: none;
+}
+.card{
+    background-color: transparent;
+    border: 3px solid var(--cream);
+    height: 400px;
+    padding: 1rem;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+}
+.card img{
+    width: 100px;
+}
+.card p{
+    text-align: left;
+    color: var(--cream);
+    padding: .5rem;
+}
+.card h4{
+    text-align: center;
+    padding: 1rem 1rem;
+}
+.card .btn{
+    align-items: baseline;
+}
+
+
+/* ----------Our Impact Section------------ */
+#impact-title{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 94px auto 70px;
+    justify-items: center;
+    align-items: center;
+}
+#impact-title img{
+    width: 100%;
+}
+.our-impact{
+    padding: 2rem 1.563rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background-image: url(images/graphics/Rectangle_yellow.svg);
+    background-size: 531px auto;
+    background-repeat: repeat-x;
+    background-position: 50% 97%;
+}
+.our-impact img{
+    border-radius: 15%;
+}
+#impact-img-decor{
+    display: grid;
+}
+#impactSun{
+    position: relative;
+    width: 16%;
+    top: 26px;
+    left: 303px;
+}
+#impactHearts{
+    width: 21%;
+}
+.stats{
+    background-image: url(images/graphics/drawn_bkgrnd2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3rem;
+    padding: 0rem 3rem;
+
+}
+#wowTop{
+    position: relative;
+    top: 12px;
+    left: 105px;
+}
+#wowBtm{
+    position: relative;
+    top: -43px;
+    left: -137px;
+}
+.stats div{
+    display: grid;
+    justify-items: center;
+}
+.stats-num{
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--dark-orange);
+    font-size: 3.375rem;
+    font-weight: 900;
+    padding-top: 1rem;
+}
+.stats p{
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--navy);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 750;
+    padding-bottom: 1rem;
+}
+#impactYellow{
+    position: relative;
+}
+/* ------------Contact us Section------------ */
+#contact-us{
+    padding: 0rem 1rem 0rem 1rem;
+}
+#contactTitle{
+    display: grid;
+    grid-template-columns: 59px auto 59px;
+    justify-items: center;
+}
+#mail-icon{
+    position: relative;
+    top: -15px;
+    left: -45px;
+    rotate: 25deg;
+    grid-column: 3;
+}
+#contactTitle h2, #contact-us p{
+    text-align: center;
+    padding-bottom: 1rem;
+    grid-column: 2;
+}
+
+form{
+    background-color: var(--navy);
+    border-radius: 6%;
+    padding: 1rem;
+    justify-items: center;
+}
+input, label, fieldset, textarea{
+    display: block;
+    width: 94%;
+    border-radius: 9px;
+}
+form label, legend{
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 650;
+    padding-left: .25rem;
+    margin: 1rem 0 0.2rem 0;
+}
+input{
+    background-color: var(--cream);
+    font-size: 1rem;
+    padding: 0.25em 0.5em;
+    height: 1.75rem;
+}
+fieldset{
+    border: 3px solid var(--white);
+    padding: 1.5em  1em;
+	margin: 0.75em 0 0.25em 0;
+	width: 88%;
+	display: grid;
+    gap: 1rem;
+	grid-template-columns: 1fr 3fr 1fr 3fr;
+}
+label.radio{
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5rem;
+    align-items: center;
+    margin: 0 0 0 2rem;
+}
+
+input[type="radio"]{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.radio_input{
+    display: flex;
+}
+
+span.radio_control{
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--white);
+    transform: translateY(-0.05rem);
+    color: var(--dark-orange);
+}
+
+.radio_input input:checked + .radio_control{
+    background: radial-gradient(var(--dark-orange) 50%, rgba(255, 0, 0, 0) 51%);
+}
+
+.radio_input input:focus + .radio_control{
+    box-shadow: 0 0 0 0.05rem var(--wht), 0 0 0.15rem 0.1rem var(--dark-orange);
+}
+textarea{
+	width: 98%;
+	height: 5em;
+    background-color: var(--cream);
+	margin-bottom: 1em;
+    font-family: "Nunito Sans", sans-serif;
+}
+input:focus, textarea:focus{
+	outline:3px solid var(--light-orange);
+    outline-offset:2px;
+}
+
+input:error, textarea:error{
+	outline: 3px solid var(--dark-orange);
+    outline-offset:2px;
+}
+#mySubmit{
+    border: 3.5px solid var(--white);
+	padding: 0.75em;
+	width: 35%;
+	height: auto;
+	color: var(--white);
+	background-color: transparent;
+	font-family:"Nunito Sans", sans-serif ;
+    letter-spacing: 2px;
+    border-radius: 0%;
+}
+#mySubmit:hover{
+    background-color: var(--white);
+    color: var(--navy);
+    font-weight: 700;
+    transition:all var(--transition);
+    transform:translateY(-2px); 
+    cursor: pointer;
+}
+
+#mySubmit:focus{
+    border: 2px solid var(--light-orange);
+}
+.hidden{
+    visibility: hidden;
+    height: .5px;
+}
+/* ----See Us----- */
+.see-us h3{
+    padding-top: 2rem;
+}
+.see-us p{
+    text-align: left;
+    padding-top: .5rem;
+}
+.see-us-info{
+    background-image: url(images/graphics/drawn_bkgrnd.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    justify-content: center;
+    padding: 2rem 1rem;
+    gap: 10px;
+}
+.see-us-info > div{
+    display: grid;
+    grid-template-columns: 44px auto;
+    grid-template-rows: 40px auto;
+    align-items: center;
+}
+.see-us-info img{
+    width:32px;
+}
+.see-us-info a{
+    text-decoration: none;
+    color: var(--navy);
+}
+a.contactLink{
+    color: var(--navy);
+    text-decoration: none;
+}
+a.contactLink:hover {
+    text-decoration: underline var(--light-orange);
+}
+.buiz-hrs >img{
+    grid-column: 1/2;
+
+}
+b{
+    font-weight: bold;
+}
+
+.hrs{
+    grid-row: 2;
+    grid-column: 2 / -2;
+}
+.see-us-info h4{
+    color: var(--navy);
+    font-size: 16px;
+}
+.buiz-hrs > p{
+    grid-column:2/3;
+    font-weight:750;
+    font-family:"Nunito Sans", sans-serif;
+    color: var(--navy);
+    padding-top: .5rem;
+}
+.hrs p{
+padding: 1px;
+}
+/* ---------------footer---------------- */
+footer{
+    background-color: var(--navy);
+    padding-top:2rem;
+
+}
+
+.site-footer section{
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+}
+
+.site-footer h2{
+    text-align: center;
+    color: var(--cream);
+}
+footer img{
+    width: fit-content;
+    padding-bottom: 20px;
+}
+
+.footer-socials h2, .footer-info h2{
+    font-size: 1rem;
+}
+.footer-socials a{
+    width: 35px;
+}
+.footer-socials svg{
+    height: auto;
+    fill: var(--cream);
+    transition: fill 0.3s ease;
+}
+.footer-socials svg:hover{
+    fill: var(--dark-orange);
+    cursor: pointer;
+}
+.footer-info address{
+    display: grid;
+    gap: 5px;
+    text-align: center;
+    font-weight: 250;
+}
+.footer-info{
+    color: var(--cream);
+}
+footer a{
+    padding: 5px 0;
+    color: var(--cream);
+    text-decoration: none;
+    
+}
+footer p{
+    color: var(--cream); 
+    font-size: .75rem;
+    font-weight: 250;
+    text-align: center;
+    padding: 2rem 1rem .5rem 1rem;
+}
+/* ---------------------------Medium Screens-------------------------- */
+@media screen and (min-width: 834px){
+    header{
+        display: flex;
+        align-items: flex-end;
+    }
+    header p{
+        text-align:left;
+        font-size: 18px;
+    }
+    h1{
+        font-size: 55px;
+        text-align: left;
+        padding-top: 2rem;
+        font-weight: 700;
+    }
+    #header-img{
+        position: relative;
+    }
+    /* ------------Our Service------ */
+    .section-title{
+        text-align: center;
+    }
+    .service-options{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
