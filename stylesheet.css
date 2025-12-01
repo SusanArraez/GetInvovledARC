@@ -811,4 +811,60 @@ footer p{
         grid-template-columns: 1fr 1fr;
     }
 }
+/* -------Large screen 1280px---------- */
+@media screen and (min-width: 1280px){
+    
+    header{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+    }
+    #hero{
+        display: grid;
+        justify-items: start;
+        position: relative;
+        top: -65px;
+    }
+    #hero h1{
+        font-size: 80px;
+    }
+    #hero p{
+        font-size: 20px;
+        padding-left: 50px;
+    }
+    #hero a{
+        margin-left: 50px;
+    }
+    #decor-hdr-img-sun {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+    #heart1{
+        top: 95px;
+        left: -697px;
+    }
+    #headersun1{
+        top: -15px;
+        left: -454px;
+        width: 18%;
+    }
+    #headersun2 {
+    left: -38px;
+    top: 56px;
+    width: 22%;
+    }
+    #decor-hdr-hrts3{
+    left: 1087px;
+    top: 76px;
+    }
+/* ------Our Services--------- */
+#service-sun1{
+    left: 484px;
 
+}
+#service-sun2 {
+    left: 786px;
+}
+
+}
