@@ -630,10 +630,10 @@ input:focus, textarea:focus{
     outline-offset:2px;
 }
 
-input:error, textarea:error{
+/* input:error, textarea:error{
 	outline: 3px solid var(--dark-orange);
     outline-offset:2px;
-}
+} */
 #mySubmit{
     border: 3.5px solid var(--white);
 	padding: 0.75em;
@@ -785,6 +785,86 @@ footer p{
 }
 /* ---------------------------Medium Screens-------------------------- */
 @media screen and (min-width: 834px){
+    .mobile-nav{
+        display: flex;
+        justify-content: center;
+    }
+    .topnav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0 2rem;
+}
+
+  /* hide the hamburger icon on larger screens */
+.topnav a.icon {
+    display: none;
+}
+
+  /* show links inline */
+.topnav #myLinks {
+    display: flex; 
+    gap: 1.25rem;
+    align-items: center;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+  /* each link is inline and inherits existing link styles */
+.topnav #myLinks > div {  
+    display: block;
+}
+.topnav #myLinks a {
+    display: inline-block;
+    padding: 0.5rem 0.25rem;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 700;
+    transition: color var(--transition), transform var(--transition);
+}
+.topnav #myLinks a:hover,
+.topnav #myLinks a:focus {
+    text-decoration: solid var(--light-orange);
+    transform: translateY(-2px);
+}
+
+  /* keep the logo visible and aligned left */
+.home-logo {
+    margin: 0;
+    order: 1;
+}
+
+  /* place nav links after the logo */
+.topnav #myLinks {
+    order: 2;
+}
+
+  /* header actions (Donate / Volunteer) appear on the right */
+#header-actions {
+    width: fit-content;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 1rem; 
+    background: transparent;
+    justify-content: flex-end;
+}
+
+
+#header-actions .btn {
+    /* padding: 0.5rem 0.9rem; */
+    box-shadow: none;
+}
+
+  /* if #myLinks is toggled open class on mobile, ensure it doesn't interfere on desktop */
+.topnav #myLinks.open {
+    display: flex !important;
+}
     header{
         display: flex;
         align-items: flex-end;
@@ -865,6 +945,197 @@ footer p{
 }
 #service-sun2 {
     left: 786px;
+}
+.section-title h2{
+    font-size: 40px;
+}
+.service-options{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+/* Service Display Styles */
+.services-display-section {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    background: var(--white);
+    border-radius: 10px;
+    display: grid;
+    justify-items: center;
+}
+
+.service-controls {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.75rem 0 1rem 0;
+    flex-wrap: wrap;
+}
+
+.service-btn {
+    background: transparent;
+    border: 2px solid var(--light-orange);
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.service-btn[aria-selected="true"] {
+    background: var(--dark-orange);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.service-display {
+    margin-top: 1rem;
+    display: block;
+    background-color: var(--navy);
+    border-radius: 54px;
+}
+
+.service-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.service-panel img {
+    width: 100px;
+    height: auto;
+    padding: 0.5rem;
+}
+
+.service-panel h3 {
+    margin-top: 0;
+    color: var(--cream);
+}
+.service-panel p{
+    color: var(--cream);
+}
+
+@media (max-width: 833px) {
+    .service-panel { grid-template-columns: 1fr; }
+    .service-panel img { width: 140px; margin: 0 auto 0.5rem; }
+}
+/* ------Our Impact----- */
+.our-impact{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#impact-cont{
+    grid-column: 2/-1;
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+}
+#impact-title {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 106px 220px 97px;
+}
+#impact-img-decor {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: center;
+}
+.stats{
+    grid-column: 1/-1;
+    flex-direction: row;
+    background-image: url(images/graphics/drawn_bkgrnd_horizontal.svg);
+    background-size: auto 265px;
+    padding: 6rem;
+}
+#wowBtm {
+    position: relative;
+    top: -108px;
+    left: -105px;
+    rotate: 190deg;
+}
+#wowTop {
+    position: relative;
+    top: 118px;
+    left: 75px;
+    rotate: 190deg;
+}
+/* -----game---------- */
+.game-play {
+    padding: 2rem 1.25rem; 
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+.guess-form { 
+    display: flex; 
+    gap: 0.75rem; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    margin-top: 1rem;
+    width: 333px;
+    height: 244px;
+    justify-content: center;
+}
+.guess-form label { 
+    width: 100%; 
+    color: var(--navy); 
+    font-weight:700; 
+}
+.guess-form input[type="number"] {
+    width: 14rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 2px solid var(--brown);
+    font-size: 1rem;
+    background: var(--cream);
+}
+.guess-form .btn { 
+    margin-top: 0.25rem; 
+}
+.game-result { 
+    margin-top: 1rem; 
+    padding: 1rem;
+    border-radius: 10px; 
+    background: var(--navy); 
+    color: var(--cream); 
+    box-shadow: var(--shadow); 
+}
+.game-result .large { 
+    font-size: 1.25rem; 
+    font-weight: 800; 
+    color: var(--light-orange); 
+}
+
+
+/* -----------Contact us---------- */
+#contact-us{
+    display: grid;
+    grid-template-rows: 100px auto;
+}
+#contactTitle{
+    grid-column: 1/-1;
+}
+form{
+    grid-row: 2;
+    margin: 2rem;
+}
+#footer-footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+form p{
+    color: var(--cream);
+}
+
+/* input / textarea outline when invalid */
+input.error, textarea.error {
+    outline: 5px solid var(--accent-dark);
 }
 
 }

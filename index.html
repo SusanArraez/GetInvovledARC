@@ -11,7 +11,7 @@
     <!-- Links -->
     <!-- To stylesheet -->
     <link rel="stylesheet" href="stylesheet.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <!-- Favicon--> 
     <title>Arizona Refugee Center</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -77,7 +77,7 @@
 
     
     <main id="main">
-        <section class="services">
+        <!-- <section class="services">
             <div class="section-title">
                 <img id="service-sun1" src="images/graphics/arc_wall_art_sun.svg" alt="" width="40">
                 <h2>Our Services</h2>
@@ -115,18 +115,53 @@
                     <a href="#contact-us" class="btn btn-primary">Contact Us</a>
                 </div>
             </div>
+        </section> -->
+        <section id="services-display" class="services-display-section" aria-labelledby="services-heading">
+            <h2 id="services-heading">Our Programs & Services</h2>
+            <p class="lead">Click a service to learn more. </p>
+
+            <!-- Controls (always visible) -->
+            <div class="service-controls" role="tablist" aria-label="Services list">
+                <button class="service-btn" data-service="lang" id="srv-lang" role="tab" aria-selected="true">Cultural Adaptation</button>
+                <button class="service-btn" data-service="jobs" id="srv-jobs" role="tab" aria-selected="false">Job & Housing Support</button>
+                <button class="service-btn" data-service="papers" id="srv-papers" role="tab" aria-selected="false">Citizenship Prep</button>
+            </div>
+
+            <!-- Display area -->
+            <div id="servicesDisplay" class="service-display" role="region" aria-live="polite">
+                <article class="service-panel" data-service="lang">
+                <h3>Cultural Adaptation</h3>
+                <img src="images/graphics/learning_lang_icon.svg" alt="">
+                <p>Our Cultural Adaptation program provides language classes and cultural orientation workshops that help families confidently navigate everyday life, schools, transportation, and local community expectations. Participants gain essential skills and connections to adjust smoothly to life in the U.S.</p>
+                </article>
+
+                <article class="service-panel hidden" data-service="jobs">
+                <h3>Job & Housing Support</h3>
+                <img src="images/graphics/job_ready_icon.svg" alt="">
+                <p>We help refugees build economic stability through job placement, resume development, interview practice, and connections to trusted employers. Our housing support team assists families in finding safe, reliable housing and provides ongoing case management to ensure long-term success.</p>
+                </article>
+
+                <article class="service-panel hidden" data-service="papers">
+                <h3>Citizenship Preparation</h3>
+                <img src="images/graphics/paper_work_icon.svg" alt="">
+                <p>Our Citizenship Prep program guides participants through the naturalization process. We offer civics classes, English practice, study materials, document assistance, and mock interviews to help applicants feel prepared and confident for their USCIS appointment.</p>
+                </article>
+            </div>
         </section>
-        
         <section class="our-impact">
-            <div id="impact-title">
+            <div id="impact-cont">
+                <div id="impact-title">
                 <img src="images/graphics/arc_wall_art_earth.svg" alt="">
                 <h2>Our Impact</h2>
                 <img src="images/graphics/handing_heart_icon.svg" alt="">
-            </div>
-            <p>We are a non-profit organization dedicated to assisting refugees who have been resettled in Arizona. 
+                </div>
+                <p>We are a non-profit organization dedicated to assisting refugees who have been resettled in Arizona. 
             Our goal is to create a welcoming environment and provide the tools necessary for success and integration. We believe in the strength and resilience of every individual, and work to empower all for a brighter future.
-            This is who we are-we are of one heart.</p>
-            <a href="donate.html#donate-form" class="btn btn-primary">Volunteer</a>
+            This is who we are-we are of one heart.
+                </p>
+                <a href="donate.html#donate-form" class="btn btn-primary">Volunteer</a>
+            </div>
+
             <div id="impact-img-decor">
                 <img id="impactSun" src="images/graphics/arc_wall_art_sun.svg" alt="" width="50">
                 <img src="images/julianna_helping_lady.png" alt="Lady with a pink shirt searching on the laptop helping another woman" width="480">
@@ -134,7 +169,7 @@
             </div>
             
             <section class="stats">
-                <img id="wowTop" src="images/graphics/Wow Marks Right.svg" alt="">
+                <img id="wowTop" src="images/graphics/WowMarksRight.svg" alt="">
                 <div>
                     <h3 class="stats-num">150</h3>
                     <p>families reunited</p>
@@ -147,17 +182,40 @@
                     <h3 class="stats-num">356</h3>
                     <p>total volunteers</p>
                 </div>
-                <img id="wowBtm" src="images/graphics/Wow Marks Btm.svg" alt="">
+                <img id="wowBtm" src="images/graphics/WowMarksBtm.svg" alt="">
             </section>
+        </section>
+        <!-- Game -->
+        <section id="game-play" class="game-play section">
+            <div class="section-title">
+                <h2>Let's Play!</h2>
+                <h3>It's easy!Just guess the number.<br> Enter a number between 1 and 10.<br> If your guess matches the randomly generated number, you win!</h3>
+            </div>
+
+            <form id="guess-form" class="guess-form" novalidate>
+                <label for="guessInput">Your guess (1-10)</label>
+                <input id="guessInput" name="guess" type="number" min="1" max="10" inputmode="numeric" placeholder="Enter a number 1 - 10" required>
+                <p id="guessHelp" class="error-message hidden">Please enter an integer between 1 and 10.</p>
+
+                <button type="submit" class="btn btn-primary">Play</button>
+                <button type="button" id="guessReset" class="btn btn-outline">Reset</button>
+            </form>
+
+            <div id="gameResult" class="game-result hidden" aria-live="polite">
+                <p id="resultText" class="large"></p>
+                <p id="numbersShown"></p>
+                <p id="tryAgainHint"></p>
+            </div>
         </section>
 
         <section id="contact-us">
             <div id="contactTitle">
                 <h2>Contact us!</h2>
                 <img id="mail-icon" src="images/graphics/mail_icon.svg" alt="" width="45">
+                <p>Let us know that if you have any questions or if you'd like to set up a time to meet up</p>
             </div>
-            <p>Let us know that if you have any questions or if you'd like to set up a time to meet up</p>
-                <form id="contact-us-form" action="https://wp.zybooks.com/form-viewer.php" target="_blank" method="GET">
+
+            <form id="contact-us-form" action="https://wp.zybooks.com/form-viewer.php" target="_blank" method="GET">
                     <label for="fullName">Full Name<span class="required">*</span></label>
                     <input type="text" name="fullName" id="fullName" placeholder="First Name & Last Name" >
                     
@@ -192,8 +250,8 @@
                     <p id="msgError" class="hidden">Please let us know what you need.</p>
     
                         <input type="submit" id="mySubmit" value="SEND">
-                </form>
-                <p id="confirm" class="hidden"></p>
+            </form>
+            <p id="confirm" class="hidden"></p>
             <div class="see-us">
                 <h3>Better yet, see us in person!</h3>
                 <p>We love our customers, so feel free to visit during normal business hours</p>
@@ -242,7 +300,8 @@
                 <a href="https://www.azrefugeecenter.org/checkout/donate?donatePageId=6507852ed66cf708bde50bba" class="btn btn-primary">DONATE</a>
                 <img src="images/little_boy_smiling_sm.png" alt="Little boy smiling.">
             </section>
-            <section class="footer-socials">
+            <div id="footer-footer">
+                <section class="footer-socials">
                 <h2>Follow us on Social Media</h2>
                 <a href="https://www.instagram.com/azrefugeecenter/"> 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143.69 143.39">
@@ -264,6 +323,8 @@
                 </address>
             
             </section>
+            </div>
+            
         </div>
         <p><small>&copy; 2025 Arizona Refugee Center</small></p>
     </footer>
